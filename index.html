@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Log in page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/gif/png" href="assets/images/2.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="headerHeight">
+    <div class="template">
+        <div>
+            <div class="headerLeft">
+                <h1>facebook</h1>
+            </div>
+
+            <div class="headerRight">
+                <form method="post" name="logIn" onsubmit="forLogIn()" enctype="text/plain">
+                    <table>
+                        <tr>
+                            <td>Email or Phone</td>
+                            <td>Password</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td> <input type="text" name="emailOrPhone"> </td>
+                            <td> <input type="password" name="password"> </td>
+                            <td> <input type="submit" value="Log In"> </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td style="color: #97ACCF">Forgotten account?</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="background">
+    <div class="template">
+        <div>
+            <div class="containerLeft">
+                <h3>Facebook helps you connect and share with the <br> people in your life.</h3>
+                <img src="assets/images/1.png">
+            </div>
+
+            <div class="containerRight">
+                <h1>Create an account</h1>
+                <h3>It's free and always will be.</h3>
+                <form name="signUp">
+                    <table>
+                        <tr class="tbl1">
+                            <td> <input type="text" name="fname" placeholder="First name"> </td>
+                            <td> <input type="text" name="sureName" placeholder="Surname"> </td>
+                        </tr>
+                        <tr>
+                            <td id="frstNameWarn" style="color: #BE4B49; padding-bottom: 2px"></td>
+                            <td id="surNameWarn" style="color: #BE4B49; padding-bottom: 2px"></td>
+                        </tr>
+                        <tr class="tbl2">
+                            <td colspan="2"> <input type="text" name="mobileOrEmail" placeholder="Mobile number or email address"> </td>
+                        </tr>
+                        <tr>
+                            <td id="emailWarn" colspan="2" style="color: #BE4B49; padding-bottom: 2px"></td>
+                        </tr>
+                        <tr class="tbl2">
+                            <td colspan="2"> <div> <input type="password" id="showPass" name="newPassword" placeholder="New password"> </div>
+                                <div class="iconStyle"> <i id="changeIcon" class="material-icons" onclick="showHidePass()">lock </i> </div>
+                             </td>
+                        </tr>
+                        <tr>
+                            <td id="passwordWarn" colspan="2" style="color: #BE4B49; padding-bottom: 2px"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color: #512839; font-size: 15px;"> Birthday </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="tbl3">
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                </select>
+                                <select class="tbl4">
+                                    <option>Mar</option>
+                                    <option>Apr</option>
+                                    <option>May</option>
+                                </select>
+                                <select class="tbl5">
+                                    <option>1994</option>
+                                    <option>1995</option>
+                                    <option>1996</option>
+                                </select>
+                            </td>
+                            <td class="tbl6"> Why do I need to provide my <br> date of birth? </td>
+                        </tr>
+                        <tr>
+                            <td> 
+                                <input class="radioButtonFml" type="radio" name="gender">Female
+                                <input class="radioButtonMl" type="radio" name="gender">Male
+                            </td>
+                            <td  id="genderWarn" style="color: #BE4B49;"></td>
+                        </tr>
+                    </table>
+                </form>
+
+                <p class="termsPart">By clicking Sign up, you agree to our <span>Terms, data policy</span> and <br> <span>cookie policy</span>. You may receive SMS 
+                notifications from us and <br> can opt out any time.</p>
+
+                <button class="signupButton" onclick="newAcButton()">Sign Up</button>
+
+                <p class="cPage"><span>Create a Page</span> for a celebrity, band or business.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        //window.alert("Email: example@gmail.com  password: 123456789");
+        function forLogIn(){
+            var name = document.logIn.emailOrPhone;
+            var password = document.logIn.password;
+            if(name.value == "example@gmail.com" && password.value == 123456789){
+                document.write("");
+                window.document.location.href = 'log_in.html';
+            }
+            else{
+                document.write("");
+                window.document.location.href = 'wrongPass.html';
+            }
+        }
+
+        function newAcButton(){
+
+            var nameForSignup = document.signUp.fname;
+            var surNameforSignup = document.signUp.sureName;
+            var emailForSignup = document.signUp.mobileOrEmail;     
+            var passForSignup = document.signUp.newPassword;            
+            //var genderForSignup = document.signUp.gender;
+
+            if(nameForSignup.value == ""){
+                document.getElementById("frstNameWarn").innerHTML = "  *Please input first name";
+                return false;
+            }   
+            else{
+                document.getElementById("frstNameWarn").innerHTML = "";
+            }   
+
+            if(surNameforSignup.value == ""){
+                document.getElementById("surNameWarn").innerHTML = " *Please input surname";
+                return false;
+            }     
+            else{
+                document.getElementById("surNameWarn").innerHTML = "";
+            }
+
+            if(emailForSignup.value == ""){
+                document.getElementById("emailWarn").innerHTML = " *Please input phone number or email address";
+                return false;
+            }
+            else{
+                document.getElementById("emailWarn").innerHTML = "";
+            }
+
+            if(passForSignup.value == ""){
+                document.getElementById("passwordWarn").innerHTML = " *Please input new password";
+                return false;
+            }
+            else{
+                document.getElementById("passwordWarn").innerHTML = "";
+            }
+
+            var upperCaseLetters = /[A-Z]/g;
+            var numberMatch = /[0-9]/g;
+            if(passForSignup.value.match(upperCaseLetters)){
+                document.getElementById("passwordWarn").innerHTML = "";
+            }
+            else{
+                document.getElementById("passwordWarn").innerHTML = " *Password must contain a uppercase letter";
+                return false;
+            }
+
+            if(passForSignup.value.match(numberMatch)){
+                document.getElementById("passwordWarn").innerHTML = "";
+            }
+            else{
+                document.getElementById("passwordWarn").innerHTML = " *Password must contain a number";
+                return false;
+            }
+
+            for(var i=0; i<2; i++){
+                var genderForSignup = document.signUp.gender[i];
+                if(genderForSignup.checked){
+                    document.getElementById("genderWarn").innerHTML = "";
+                    var a =0;
+                }
+                if(a!=0){
+                    document.getElementById("genderWarn").innerHTML = " *Select gender";
+                    if(i== 1){
+                        return false;
+                    }
+                }
+            }
+
+            document.write("");
+            window.document.location.href = 'sign_up.html';
+        }
+
+        function showHidePass(){
+                var x = document.getElementById("showPass");
+                if(x.type === "password"){
+                    x.type = "text";
+                    document.getElementById("changeIcon").innerHTML = "lock_open";
+                }
+                else{
+                    x.type = "password";
+                    document.getElementById("changeIcon").innerHTML = "lock";
+                }
+            }
+    </script>
+</body>
+</html>
